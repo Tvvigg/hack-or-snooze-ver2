@@ -88,6 +88,7 @@ class StoryList {
 
   /**Deletes story from api and then removes it from the dom */
   async removeStory(user, storyId) {
+    console.debug("delete story");
     const token = user.loginToken;
     await axios({
       url: `${BASE_URL}/stories/${storyId}`,
@@ -100,7 +101,6 @@ class StoryList {
 
     // do the same thing for the user's favorites
     user.favorites = user.favorites.filter((s) => s.storyId !== storyId);
-    user.ownStories = user.ownStories.filter((s) => s.storyId !== storyId);
   }
 }
 
