@@ -97,26 +97,6 @@ function getStarHTML(story, user) {
       </span>`;
 }
 
-/** Put favorites list on page. */
-
-function putFavoritesListOnPage() {
-  console.debug("putFavoritesListOnPage");
-
-  $favoritedStories.empty();
-
-  if (currentUser.favorites.length === 0) {
-    $favoritedStories.append("<h5>No favorites added!</h5>");
-  } else {
-    // loop through all of users favorites and generate HTML for them
-    for (let story of currentUser.favorites) {
-      const $story = generateStoryMarkup(story);
-      $favoritedStories.append($story);
-    }
-  }
-
-  $favoritedStories.show();
-}
-
 /** Deletes story  */
 async function deleteStory(evt) {
   console.debug("deleteStory");
